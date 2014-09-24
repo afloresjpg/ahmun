@@ -9,19 +9,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Ahmun</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo $url; ?>assets/template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $url; ?>assets/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="<?php echo $url; ?>assets/template/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="<?php echo $url; ?>assets/stylesheets/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="<?php echo $url; ?>assets/stylesheets/plugins/timeline.css" rel="stylesheet">    
 
     <!-- Custom CSS -->
-    <link href="<?php echo $url; ?>assets/template/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?php echo $url; ?>assets/stylesheets/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="<?php echo $url; ?>assets/stylesheets/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo $url; ?>assets/template/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $url; ?>assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

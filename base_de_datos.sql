@@ -41,6 +41,30 @@ LOCK TABLES `clientes` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `errores`
+--
+
+DROP TABLE IF EXISTS `errores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `errores` (
+  `ERROR_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `MENSAJE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ERROR_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `errores`
+--
+
+LOCK TABLES `errores` WRITE;
+/*!40000 ALTER TABLE `errores` DISABLE KEYS */;
+INSERT INTO `errores` VALUES (1,'EMAIL VACIO'),(2,'NO EXISTE UN USUARIO CON ESE EMAIL');
+/*!40000 ALTER TABLE `errores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `piezas`
 --
 
@@ -102,7 +126,7 @@ CREATE TABLE `usuarios` (
   `EMAIL` varchar(255) DEFAULT NULL,
   `ADMIN` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`USUARIO_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,4 +148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-23 18:25:26
+-- Dump completed on 2014-09-24 13:08:35

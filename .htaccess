@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-RewriteEngine on 
-RewriteCond $1 !^(index.php|css|js|images|robots.txt) 
-RewriteRule ^(.*)$ /adminlp/index.php/$1 [L]
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|assets|robots\.txt)
+RewriteRule ^(.*)$ /ahmun/index.php/$1 [L]
 </IfModule>
