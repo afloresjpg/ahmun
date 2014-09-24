@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Inicio extends CI_Controller {
+class Dashboard extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,39 +19,33 @@ class Inicio extends CI_Controller {
 	 */
 	public function index()
 	{	
-		$this->load->library('session');					
-		$this->load->helper('url');					
-		$this->logIn();			
-	}
-
-	public function isLogedIn() 
-	{				
-
+		$this->load->library('session');	
 		$session = $this->session->all_userdata();
-		$id_session = $session['session_id'];
-		$user_session = $this->session->userdata($id_session);
+		$data['url'] = base_url();					
 
-		if($user_session) {			
-			return true;
-		} else {
+		if(!$session['logged_in']) {		
+			header('Location: login');
 			return false;
-		}
-		
+		} else {
+			$this->load->view('templates/head', $data);
+			$this->load->view('dashboard', $data);
+			$this->load->view('templates/footer', $data);
+		}		
+
+	}	
+
+	public function logout() 
+	{
+		$this->load->library('session');	
+		$this->session->sess_destroy();
+
+		$data['url'] = base_url();			
+		header('Location: '.$data['url'].'inicio');
 	}
 
-	public function logIn() 
-	{		
-		$data['url'] = base_url();				
-		if($this->isLogedIn()) {
-			
-		} else {		
-			$this->load->view('templates/head', $data);
-			$this->load->view('login', $data);	
-			$this->load->view('templates/footer', $data);
-		}
-	}
-	
 }
+	
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
+

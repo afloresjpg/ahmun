@@ -6,14 +6,15 @@ class User_model extends CI_Model {
 	public function getUsers() {
 
 		$query = $this->db->get('USUARIOS');
-		die(var_dump($query->result()));
+		return $query->result_array();		
 
 	}
 
-	public function altaUsuario() {
+	public function getUserByEmail($email) {
 
-		$query = $this->db->query("CALL ALTA_USER('Hola', 'Hola2', 'Hola3');"); 
-		return $query->resutl_array();
+		$query = $this->db->query("CALL USUARIO_X_EMAIL('".$email."');"); 		
+		$result = $query->result_array();				
+		return $result[0];
 
 	}
 
