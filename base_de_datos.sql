@@ -51,7 +51,7 @@ CREATE TABLE `errores` (
   `ERROR_ID` int(11) NOT NULL AUTO_INCREMENT,
   `MENSAJE` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ERROR_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `errores` (
 
 LOCK TABLES `errores` WRITE;
 /*!40000 ALTER TABLE `errores` DISABLE KEYS */;
-INSERT INTO `errores` VALUES (1,'EMAIL VACIO'),(2,'NO EXISTE UN USUARIO CON ESE EMAIL');
+INSERT INTO `errores` VALUES (1,'EMAIL VACIO'),(2,'NO EXISTE UN USUARIO CON ESE EMAIL'),(3,'NOMBRE DE USUARIO EXISTENTE'),(4,'EMAIL EXISTENTE');
 /*!40000 ALTER TABLE `errores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +126,7 @@ CREATE TABLE `usuarios` (
   `EMAIL` varchar(255) DEFAULT NULL,
   `ADMIN` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`USUARIO_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +135,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (5,'Alan','Flores','aflores','ushuaia1','aflores@jpggrupo.com',1);
+INSERT INTO `usuarios` VALUES (5,'Alan','Flores','aflores','ushuaia1','aflores@jpggrupo.com',1),(13,'Tupac','Amaru','tamaru','tupacamaru','tamaru@inca.com',0);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -148,4 +148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-24 13:08:35
+-- Dump completed on 2014-09-25 10:48:40
