@@ -15,12 +15,12 @@
                                     <i class="fa fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?php echo $total_clientes; ?></div>
                                     <div>Clientes!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="<?php echo $url; ?>clientes/listar">
                             <div class="panel-footer">
                                 <span class="pull-left">Agregar nuevo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

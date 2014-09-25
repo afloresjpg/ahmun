@@ -28,7 +28,13 @@
                             <!-- /.nav-second-level -->
                         <!-- </li>-->
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i>Usuarios</a>
+                            <a href="<?php echo $url; ?>usuarios/listar"><i class="fa fa-table fa-fw"></i>Usuarios</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $url; ?>clientes/listar"><i class="fa fa-table fa-fw"></i>Clientes</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $url; ?>cliente_interno/listar"><i class="fa fa-table fa-fw"></i>Cliente Interno</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar<span class="fa arrow"></span></a>
@@ -37,10 +43,10 @@
                                     <a href="<?php echo $url; ?>usuarios">Usuario</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Cliente</a>
+                                    <a href="<?php echo $url; ?>clientes">Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html">Cliente Interno</a>
+                                    <a href="<?php echo $url; ?>cliente_interno">Cliente Interno</a>
                                 </li>
                                 <li>
                                     <a href="typography.html">Pieza</a>
