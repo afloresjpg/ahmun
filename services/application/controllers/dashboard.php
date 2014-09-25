@@ -20,14 +20,19 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{	
 		$this->load->library('session');	
+		$this->load->model('user_model');	
+
 		$session = $this->session->all_userdata();
-		$data['url'] = base_url();					
+		$data['url'] = base_url();				
+		$data['total_usuarios'] = count($this->user_model->getUsers());
 
 		if(!$session['logged_in']) {		
 			header('Location: login');
 			return false;
 		} else {
 			$this->load->view('templates/head', $data);
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/menu', $data);
 			$this->load->view('dashboard', $data);
 			$this->load->view('templates/footer', $data);
 		}		
@@ -41,7 +46,7 @@ class Dashboard extends CI_Controller {
 		$this->session->sess_destroy();
 
 		$data['url'] = base_url();			
-		header('Location: '.$data['url'].'inicio');
+		header('Location: '.$data['url'].'inicio');		
 	}
 
 }

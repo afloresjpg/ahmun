@@ -6,8 +6,15 @@ class User_model extends CI_Model {
 	public function getUsers() {
 
 		$query = $this->db->get('USUARIOS');
-		return $query->result_array();		
+		$result = $query->result_array();
+		return $result;		
 
+	}
+
+	public function setUser($nombre, $apellido, $nombre_usuario, $email, $password) {
+		$query = $this->db->query("CALL ALTA_USUARIO('".$nombre."', '".$apellido."', '".$nombre_usuario."', '".$password."', '".$email."', 0);"); 						
+		$result = $query->result_array();
+		return $result[0];
 	}
 
 	public function getUserByEmail($email) {
