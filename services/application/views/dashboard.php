@@ -20,9 +20,13 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo $url; ?>clientes">
+                        <a href="<?php if($user_session['admin'] == 1){ echo $url.'clientes'; } else { echo $url.'clientes/listar'; } ?>">
                             <div class="panel-footer">
+                                <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
+                                <?php else : ?>
+                                <span class="pull-left">Ver todos</span>
+                                <?php endif; ?>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -42,9 +46,13 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo $url; ?>cliente_interno">
+                        <a href="<a href="<?php if($user_session['admin'] == 1){ echo $url.'cliente_interno'; } else { echo $url.'cliente_interno/listar'; } ?>">
                             <div class="panel-footer">
+                                <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
+                                <?php else : ?>
+                                <span class="pull-left">Ver todos</span>
+                                <?php endif; ?>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -64,9 +72,13 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo $url; ?>piezas">
+                        <a href="<a href="<?php if($user_session['admin'] == 1){ echo $url.'piezas'; } else { echo $url.'piezas/listar'; } ?>">
                             <div class="panel-footer">
+                                <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
+                                <?php else : ?>
+                                <span class="pull-left">Ver todos</span>
+                                <?php endif; ?>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -86,9 +98,13 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo $url ?>usuarios">
+                        <a href="<a href="<?php if($user_session['admin'] == 1){ echo $url.'usuarios'; } else { echo $url.'usuarios/listar'; } ?>">
                             <div class="panel-footer">
+                                <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
+                                <?php else : ?>
+                                <span class="pull-left">Ver todos</span>
+                                <?php endif; ?>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
