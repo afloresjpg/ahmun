@@ -18,6 +18,31 @@ USE `ahmunbd`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cliente_interno`
+--
+
+DROP TABLE IF EXISTS `cliente_interno`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cliente_interno` (
+  `CLIENTE_INTERNO_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NOMBRE` varchar(45) DEFAULT NULL,
+  `CLIENTE_ASOCIADO` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`CLIENTE_INTERNO_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente_interno`
+--
+
+LOCK TABLES `cliente_interno` WRITE;
+/*!40000 ALTER TABLE `cliente_interno` DISABLE KEYS */;
+INSERT INTO `cliente_interno` VALUES (1,'Cliente interno 1','Cliente uno'),(2,'Hola','Prueba'),(3,'asd','Prueba'),(4,'ffff','Prueba'),(5,'Cccc','Prueba'),(6,'holahola','Prueba'),(7,'ggggggg','Prueba'),(8,'bbbb','Prueba'),(9,'asdasdasdasdsad','Prueba'),(10,'fffffddfsf','Prueba');
+/*!40000 ALTER TABLE `cliente_interno` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `clientes`
 --
 
@@ -28,7 +53,7 @@ CREATE TABLE `clientes` (
   `CLIENTE_ID` int(11) NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(255) NOT NULL,
   PRIMARY KEY (`CLIENTE_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +62,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (2,'Prueba'),(3,'Cliente uno'),(4,'hola');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +77,7 @@ CREATE TABLE `errores` (
   `ERROR_ID` int(11) NOT NULL AUTO_INCREMENT,
   `MENSAJE` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ERROR_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +86,7 @@ CREATE TABLE `errores` (
 
 LOCK TABLES `errores` WRITE;
 /*!40000 ALTER TABLE `errores` DISABLE KEYS */;
-INSERT INTO `errores` VALUES (1,'EMAIL VACIO'),(2,'NO EXISTE UN USUARIO CON ESE EMAIL'),(3,'NOMBRE DE USUARIO EXISTENTE'),(4,'EMAIL EXISTENTE');
+INSERT INTO `errores` VALUES (1,'EMAIL VACIO'),(2,'NO EXISTE UN USUARIO CON ESE EMAIL'),(3,'NOMBRE DE USUARIO EXISTENTE'),(4,'EMAIL EXISTENTE'),(5,'CLIENTE EXISTENTE'),(7,'CLIENTE INTERNO EXISTENTE'),(8,'YA EXISTE UNA PIEZA CON ESE NOMBRE');
 /*!40000 ALTER TABLE `errores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,7 +101,7 @@ CREATE TABLE `piezas` (
   `PIEZA_ID` int(11) NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`PIEZA_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,6 +110,7 @@ CREATE TABLE `piezas` (
 
 LOCK TABLES `piezas` WRITE;
 /*!40000 ALTER TABLE `piezas` DISABLE KEYS */;
+INSERT INTO `piezas` VALUES (1,'hola'),(2,'holahola'),(3,'Prueba');
 /*!40000 ALTER TABLE `piezas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-25 10:48:40
+-- Dump completed on 2014-09-26 18:25:37
