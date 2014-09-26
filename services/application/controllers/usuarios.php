@@ -71,6 +71,21 @@ class Usuarios extends CI_Controller {
 		}
 	}
 
+	public function listar() {
+
+		$this->load->model('user_model');
+
+		$todo = $this->user_model->getUsers();
+		$data['usuarios'] = $todo;
+
+		$data['url'] = base_url();				
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/menu', $data);
+		$this->load->view('listar', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	public function showUsuariosLayer($data) {
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
