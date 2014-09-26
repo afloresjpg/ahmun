@@ -24,10 +24,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($clientes as $key => $value) : ?>
+                                        <?php foreach ($clientes_internos as $key => $value) : ?>
                                             <tr class="odd gradeX">
-                                                <td><?php echo $value['CLIENTE_ID']; ?></td>
+                                                <td><?php echo $value['CLIENTE_INTERNO_ID']; ?></td>
                                                 <td><?php echo $value['NOMBRE']; ?></td>                                                
+                                                <td><?php echo $value['CLIENTE_ASOCIADO']; ?></td>                                                
                                             </tr>
                                         <?php endforeach; ?>                                                                
                                     </tbody>

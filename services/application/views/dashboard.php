@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $total_clientes; ?></div>
-                                    <div>Clientes!</div>
+                                    <div>Clientes</div>
                                 </div>
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                                     <i class="fa fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Clientes internos!</div>
+                                    <div class="huge"><?php echo $total_clientes_internos; ?></div>
+                                    <div>Clientes internos</div>
                                 </div>
                             </div>
                         </div>

@@ -71,7 +71,7 @@ class Clientes extends CI_Controller {
 	public function listar() {
 
 		$this->load->model('clientes_model');
-
+		
 		$todo = $this->clientes_model->getClientes();
 		$data['clientes'] = $todo;
 

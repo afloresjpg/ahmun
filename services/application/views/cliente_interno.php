@@ -1,7 +1,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Usuarios</h1>
+                    <h1 class="page-header">Cliente interno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -22,6 +22,7 @@
                                             <!--<p class="help-block">Example block-level help text here.</p>-->
                                         </div>
                                         <div class="form-group">
+                                            <label>Cliente asociado</label>
                                             <select name="cliente_asociado" class="form-control">
                                                 <?php foreach ($clientes as $key => $value) : ?>
                                                     <option value="<?php echo $value['NOMBRE']; ?>"><?php echo $value['NOMBRE']; ?></option>
