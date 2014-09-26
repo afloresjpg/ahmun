@@ -27,15 +27,21 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         <!-- </li>-->
+                        <?php if($user_session['admin'] == 1) : ?>
                         <li>
                             <a href="<?php echo $url; ?>usuarios/listar"><i class="fa fa-table fa-fw"></i>Usuarios</a>
                         </li>
+                        <?php endif; ?>
                         <li>
                             <a href="<?php echo $url; ?>clientes/listar"><i class="fa fa-table fa-fw"></i>Clientes</a>
                         </li>
                         <li>
                             <a href="<?php echo $url; ?>cliente_interno/listar"><i class="fa fa-table fa-fw"></i>Cliente Interno</a>
                         </li>
+                        <li>
+                            <a href="<?php echo $url; ?>piezas/listar"><i class="fa fa-table fa-fw"></i>Piezas</a>
+                        </li>                        
+                        <?php if($user_session['admin'] == 1) : ?>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -49,7 +55,7 @@
                                     <a href="<?php echo $url; ?>cliente_interno">Cliente Interno</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Pieza</a>
+                                    <a href="<?php echo $url; ?>piezas">Pieza</a>
                                 </li>                                
                             </ul>
                         </li>
@@ -70,6 +76,7 @@
                                 </li>                                
                             </ul>
                         </li>
+                        <?php endif; ?>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

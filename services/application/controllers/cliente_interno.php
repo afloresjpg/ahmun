@@ -22,6 +22,7 @@ class Cliente_interno extends CI_Controller {
 		$this->load->library('session');		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();					
+		$data['user_session'] = $session;
 
 		if(!$session['logged_in']) {		
 			header('Location: inicio');
@@ -68,16 +69,20 @@ class Cliente_interno extends CI_Controller {
 			return false;			
 		}
 
-	}
+	}	
 
 	public function listar() {
 
-		$this->load->model('cliente_interno_model');
+		$this->load->model('cliente_interno_model');		
 
 		$todo = $this->cliente_interno_model->getClientesInternos();
 		$data['clientes_internos'] = $todo;		
 
+		$this->load->library('session');	
+		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
+		$data['user_session'] = $session;	
+
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
@@ -91,6 +96,11 @@ class Cliente_interno extends CI_Controller {
 		
 		$result = $this->clientes_model->getClientes();
 		$data['clientes'] = $result;
+
+		$this->load->library('session');	
+		$session = $this->session->all_userdata();
+		$data['url'] = base_url();				
+		$data['user_session'] = $session;	
 
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);

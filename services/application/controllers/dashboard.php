@@ -23,12 +23,15 @@ class Dashboard extends CI_Controller {
 		$this->load->model('user_model');	
 		$this->load->model('clientes_model');	
 		$this->load->model('cliente_interno_model');	
+		$this->load->model('piezas_model');	
 
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['total_usuarios'] = count($this->user_model->getUsers());
 		$data['total_clientes'] = count($this->clientes_model->getClientes());
 		$data['total_clientes_internos'] = count($this->cliente_interno_model->getClientesInternos());
+		$data['total_piezas'] = count($this->piezas_model->getPiezas());		
+		$data['user_session'] = $session;
 
 		if(!$session['logged_in']) {		
 			header('Location: login');

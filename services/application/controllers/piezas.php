@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Clientes extends CI_Controller {
+class Piezas extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,14 +21,14 @@ class Clientes extends CI_Controller {
 	{	
 		$this->load->library('session');		
 		$session = $this->session->all_userdata();
-		$data['url'] = base_url();					
-		$data['user_session'] = $session;
+		$data['url'] = base_url();				
+		$data['user_session'] = $session;	
 
 		if(!$session['logged_in']) {		
 			header('Location: inicio');
 			return false;
 		} else {
-			$this->showClientesLayer($data);			
+			$this->showPiezasLayer($data);			
 		}		
 
 	}		
@@ -36,7 +36,7 @@ class Clientes extends CI_Controller {
 	public function add() 
 	{
 
-		$this->load->model('clientes_model');
+		$this->load->model('piezas_model');
 
 		$nombre = $this->input->post('nombre', true);
 		$data['url'] = base_url();	
@@ -45,21 +45,21 @@ class Clientes extends CI_Controller {
 			if(empty($nombre)) {
 				$data['result']['type'] = 'error';
 				$data['result']['message'] = 'Alguno de los campos esta vacío';
-				$this->showClientesLayer($data);
+				$this->showPiezasLayer($data);
 			} else {
-				$result = $this->clientes_model->setCliente($nombre);
+				$result = $this->piezas_model->setPieza($nombre);
 				//die(var_dump($result));
 				if(isset($result['ERROR_ID'])) {
-					if($result['ERROR_ID'] == 5) {
+					if($result['ERROR_ID'] == 8) {
 						$data['result']['type'] = 'error';
-						$data['result']['message'] = 'Ya existe ese cliente';
-						$this->showClientesLayer($data);	
+						$data['result']['message'] = 'Ya existe esa pieza';
+						$this->showPiezasLayer($data);	
 						return false;						
 					}
 				} else {
 					$data['result']['type'] = 'success';
-					$data['result']['message'] = 'Se a registrado el cliente <strong>'.$result['NOMBRE'].'</strong> con éxito!';
-					$this->showClientesLayer($data);
+					$data['result']['message'] = 'Se a registrado la pieza <strong>'.$result['NOMBRE'].'</strong> con éxito!';
+					$this->showPiezasLayer($data);
 					return false;
 				}
 			}	
@@ -71,12 +71,12 @@ class Clientes extends CI_Controller {
 
 	public function listar() {
 
-		$this->load->model('clientes_model');
+		$this->load->model('piezas_model');
 		$this->load->library('session');	
 		
-		$todo = $this->clientes_model->getClientes();
-		$data['clientes'] = $todo;
-
+		$todo = $this->piezas_model->getPiezas();
+		$data['piezas'] = $todo;
+		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
@@ -84,11 +84,11 @@ class Clientes extends CI_Controller {
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
-		$this->load->view('listar_clientes', $data);
+		$this->load->view('listar_piezas', $data);
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function showClientesLayer($data) {
+	public function showPiezasLayer($data) {
 
 		$this->load->library('session');	
 		$session = $this->session->all_userdata();
@@ -98,7 +98,7 @@ class Clientes extends CI_Controller {
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
-		$this->load->view('clientes', $data);
+		$this->load->view('piezas', $data);
 		$this->load->view('templates/footer', $data);
 	}
 

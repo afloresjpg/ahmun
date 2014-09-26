@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo $url; ?>clientes/listar">
+                        <a href="<?php echo $url; ?>clientes">
                             <div class="panel-footer">
                                 <span class="pull-left">Agregar nuevo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="<?php echo $url; ?>cliente_interno">
                             <div class="panel-footer">
                                 <span class="pull-left">Agregar nuevo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -59,12 +59,12 @@
                                     <i class="fa fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Trabajos!</div>
+                                    <div class="huge"><?php echo $total_piezas; ?></div>
+                                    <div>Piezas</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="<?php echo $url; ?>piezas">
                             <div class="panel-footer">
                                 <span class="pull-left">Agregar nuevo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

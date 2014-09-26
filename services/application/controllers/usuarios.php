@@ -22,6 +22,7 @@ class Usuarios extends CI_Controller {
 		$this->load->library('session');		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();					
+		$data['user_session'] = $session;
 
 		if(!$session['logged_in']) {		
 			header('Location: inicio');
@@ -74,11 +75,15 @@ class Usuarios extends CI_Controller {
 	public function listar() {
 
 		$this->load->model('user_model');
+		$this->load->library('session');	
 
 		$todo = $this->user_model->getUsers();
 		$data['usuarios'] = $todo;
 
+		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
+		$data['user_session'] = $session;	
+
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
@@ -87,6 +92,12 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function showUsuariosLayer($data) {
+
+		$this->load->library('session');	
+		$session = $this->session->all_userdata();
+		$data['url'] = base_url();				
+		$data['user_session'] = $session;	
+		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
