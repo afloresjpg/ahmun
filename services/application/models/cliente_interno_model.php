@@ -31,4 +31,11 @@ class Cliente_interno_model extends CI_Model {
 
 	}
 
+	public function getClienteInternoByClienteId($id) {
+		$query = $this->db->query("CALL CLIENTE_INTERNO_X_CLIENTE_ID('".$id."');"); 	
+		$result = $query->result_array();
+
+		return $result;
+	}
+
 }

@@ -40,25 +40,32 @@
                         </li>
                         <li>
                             <a href="<?php echo $url; ?>piezas/listar"><i class="fa fa-table fa-fw"></i>Piezas</a>
-                        </li>                        
-                        <?php if($user_session['admin'] == 1) : ?>
+                        </li>                                                
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo $url; ?>usuarios">Usuario</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $url; ?>clientes">Cliente</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $url; ?>cliente_interno">Cliente Interno</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $url; ?>piezas">Pieza</a>
-                                </li>                                
+                                <?php if($user_session['admin'] == 1) : ?>
+                                    <li>
+                                        <a href="<?php echo $url; ?>usuarios">Usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $url; ?>clientes">Cliente</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $url; ?>cliente_interno">Cliente Interno</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $url; ?>piezas">Pieza</a>
+                                    </li>                                
+                                <?php endif; ?>
+                                <?php if($user_session['admin'] == 0) : ?>
+                                    <li>
+                                        <a href="<?php echo $url; ?>tarea">Tarea</a>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </li>
+                        <?php if($user_session['admin'] == 1) : ?>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Editar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

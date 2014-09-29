@@ -17,16 +17,14 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
-                                        <tr>
-                                            <th>Cliente Interno ID</th>
+                                        <tr>                                            
                                             <th>Nombre</th>                                            
                                             <th>Cliente</th>                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($clientes_internos as $key => $value) : ?>
-                                            <tr class="odd gradeX">
-                                                <td><?php echo $value['CLIENTE_INTERNO_ID']; ?></td>
+                                            <tr class="odd gradeX">                                                
                                                 <td><?php echo $value['NOMBRE']; ?></td>                                                
                                                 <td><?php echo $value['CLIENTE_ASOCIADO']; ?></td>                                                
                                             </tr>
@@ -51,5 +49,5 @@
     <script>
     $(function() {
         $('#dataTables-example').dataTable();
-    });
+    });    
     </script>

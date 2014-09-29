@@ -17,15 +17,13 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
-                                        <tr>
-                                            <th>Cliente id</th>
+                                        <tr>                                            
                                             <th>Nombre</th>                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($clientes as $key => $value) : ?>
-                                            <tr class="odd gradeX">
-                                                <td><?php echo $value['CLIENTE_ID']; ?></td>
+                                            <tr class="odd gradeX">                                                
                                                 <td><?php echo $value['NOMBRE']; ?></td>                                                
                                             </tr>
                                         <?php endforeach; ?>                                                                

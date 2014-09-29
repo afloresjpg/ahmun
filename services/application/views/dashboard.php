@@ -112,9 +112,70 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row -->            
+            <!-- /.row -->    
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Tareas</h2>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Lista de Tareas
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>                                            
+                                            <th>Cliente</th>                                            
+                                            <th>Cliente Interno</th>                                            
+                                            <th>Trabajo</th>                                            
+                                            <th>Pieza</th>                                            
+                                            <th>Cantidad</th>                                            
+                                            <th>Observaciones</th>                                            
+                                            <th>Mes</th>                                            
+                                            <th>Año</th>                                            
+                                            <th>Usuario</th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($tareas as $key => $value) : ?>
+                                            <tr class="odd gradeX">                                                
+                                                <td><?php echo $value['CLIENTE']; ?></td>                                                
+                                                <td><?php echo $value['CLIENTE_INTERNO']; ?></td>                                                
+                                                <td><?php echo $value['TRABAJO']; ?></td>                                                
+                                                <td><?php echo $value['PIEZA']; ?></td>                                                
+                                                <td><?php echo $value['CANTIDAD']; ?></td>                                                
+                                                <td><?php echo $value['OBSERVACIONES']; ?></td>                                                
+                                                <td><?php echo $value['MES']; ?></td>                                                
+                                                <td><?php echo $value['ANIO']; ?></td>                                                
+                                                <td><?php echo $value['USER']; ?></td>                                                
+                                            </tr>
+                                        <?php endforeach; ?>                                                                
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->                            
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>                    
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+    <script>
+    $(function() {
+        $('#dataTables-example').dataTable();
+    });
+    </script>
