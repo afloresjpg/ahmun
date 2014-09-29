@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<a href="<?php if($user_session['admin'] == 1){ echo $url.'cliente_interno'; } else { echo $url.'cliente_interno/listar'; } ?>">
+                        <a href="<?php if($user_session['admin'] == 1){ echo $url.'cliente_interno'; } else { echo $url.'cliente_interno/listar'; } ?>">
                             <div class="panel-footer">
                                 <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<a href="<?php if($user_session['admin'] == 1){ echo $url.'piezas'; } else { echo $url.'piezas/listar'; } ?>">
+                        <a href="<?php if($user_session['admin'] == 1){ echo $url.'piezas'; } else { echo $url.'piezas/listar'; } ?>">
                             <div class="panel-footer">
                                 <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<a href="<?php if($user_session['admin'] == 1){ echo $url.'usuarios'; } else { echo $url.'usuarios/listar'; } ?>">
+                        <a href="<?php if($user_session['admin'] == 1){ echo $url.'usuarios'; } else { echo $url.'usuarios/listar'; } ?>">
                             <div class="panel-footer">
                                 <?php if($user_session['admin'] == 1) : ?>
                                 <span class="pull-left">Agregar nuevo</span>
