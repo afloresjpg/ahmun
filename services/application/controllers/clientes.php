@@ -22,11 +22,11 @@ class Clientes extends CI_Controller {
 		$this->load->library('session');		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();					
-		$data['user_session'] = $session;
+		$data['user_session'] = $session;		
 
-		if(!$session['logged_in']) {		
-			header('Location: inicio');
-			return false;
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
 		} else {
 			$this->showClientesLayer($data);			
 		}		
@@ -80,12 +80,24 @@ class Clientes extends CI_Controller {
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
+		$data['page'] = 'cliente';
 
-		$this->load->view('templates/head', $data);
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/menu', $data);
-		$this->load->view('listar_clientes', $data);
-		$this->load->view('templates/footer', $data);
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
+		} else {
+			$this->load->view('templates/head', $data);
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/menu', $data);
+			$this->load->view('listar_clientes', $data);
+			$this->load->view('templates/footer', $data);
+		}		
+	}
+
+	public function getClientes() {
+		$this->load->model('clientes_model');
+		$todo = $this->clientes_model->getClientes();
+		echo json_encode($todo);
 	}
 
 	public function showClientesLayer($data) {
@@ -94,6 +106,7 @@ class Clientes extends CI_Controller {
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
+		$data['page'] = 'cliente';
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);

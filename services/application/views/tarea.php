@@ -118,40 +118,11 @@
         $(function() {
             $('#cliente_i').hide();
      
-            var availableTags = [
-                "ActionScript",
-                "AppleScript",
-                "Asp",
-                "BASIC",
-                "C",
-                "C++",
-                "Clojure",
-                "COBOL",
-                "ColdFusion",
-                "Erlang",
-                "Fortran",
-                "Groovy",
-                "Haskell",
-                "Java",
-                "JavaScript",
-                "Lisp",
-                "Perl",
-                "PHP",
-                "Python",
-                "Ruby",
-                "Scala",
-                "Scheme"
-            ];
-
             $.ajax({
                 url: "<?php echo $url.'tarea/getTrabajos' ?>",
                 type: 'POST',
                 dataType: 'json'                
-            })
-            .fail(function(error) {
-                console.log(error.responseText);
-            })
-            .done(function(data) {
+            }).done(function(data) {
                 var x = new Array();                
                 $.each(data, function(index, val) {                    
                     x.push(val['NOMBRE']);
@@ -177,10 +148,7 @@
                     var opt = $('<option></option>').val(val['NOMBRE']).text(val['NOMBRE']);                    
                     $('#cliente_interno').append(opt);
                 });
-            })            
-            .fail(function(error) {
-                console.log(error.responseText);
-            });
+            });            
             
         });
 

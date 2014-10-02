@@ -13,7 +13,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a class="active" href="<?php echo $url; ?>dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a class="<?php if($page == 'dashboard') { echo 'active'; } ?>" href="<?php echo $url; ?>dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <!--<li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gráficos<span class="fa arrow"></span></a>
@@ -26,20 +26,20 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        <!-- </li>-->
+                        <!-- </li>-->                        
                         <?php if($user_session['admin'] == 1) : ?>
                         <li>
-                            <a href="<?php echo $url; ?>usuarios/listar"><i class="fa fa-table fa-fw"></i>Usuarios</a>
+                            <a href="<?php echo $url; ?>usuarios/listar" class="<?php if($page == 'usuario') { echo 'active'; } ?>"><i class="fa fa-table fa-fw"></i>Usuarios</a>
                         </li>
                         <?php endif; ?>
                         <li>
-                            <a href="<?php echo $url; ?>clientes/listar"><i class="fa fa-table fa-fw"></i>Clientes</a>
+                            <a href="<?php echo $url; ?>clientes/listar" class="<?php if($page == 'cliente') { echo 'active'; } ?>"><i class="fa fa-table fa-fw"></i>Clientes</a>
                         </li>
                         <li>
-                            <a href="<?php echo $url; ?>cliente_interno/listar"><i class="fa fa-table fa-fw"></i>Cliente Interno</a>
+                            <a href="<?php echo $url; ?>cliente_interno/listar" class="<?php if($page == 'cliente_interno') { echo 'active'; } ?>"><i class="fa fa-table fa-fw"></i>Cliente Interno</a>
                         </li>
                         <li>
-                            <a href="<?php echo $url; ?>piezas/listar"><i class="fa fa-table fa-fw"></i>Piezas</a>
+                            <a href="<?php echo $url; ?>piezas/listar" class="<?php if($page == 'pieza') { echo 'active'; } ?>"><i class="fa fa-table fa-fw"></i>Piezas</a>
                         </li>                                                
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Agregar<span class="fa arrow"></span></a>
@@ -64,27 +64,18 @@
                                     </li>
                                 <?php endif; ?>
                             </ul>
-                        </li>
-                        <?php if($user_session['admin'] == 1) : ?>
+                        </li>   
+                        <?php if($user_session['admin'] == 0) : ?>                     
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Editar<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level">                                
                                 <li>
-                                    <a href="panels-wells.html">Usuario</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Cliente</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Cliente Interno</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Pieza</a>
-                                </li>                                
+                                    <a href="<?php echo $url; ?>tarea/listar">Tarea</a>
+                                </li>                                             
                             </ul>
-                        </li>
-                        <?php endif; ?>
-                        <li>
+                        </li>   
+                        <?php endif; ?>                       
+                        <!--<li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -104,8 +95,8 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <li>
+                        <!--</li> -->
+                        <!--<li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -131,10 +122,10 @@
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
-                                </li>
+                                <!--</li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                        <!--</li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -146,7 +137,7 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                        <!--</li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

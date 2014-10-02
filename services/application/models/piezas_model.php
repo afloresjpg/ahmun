@@ -5,7 +5,7 @@ class Piezas_model extends CI_Model {
 
 	public function getPiezas() {
 
-		$query = $this->db->get('PIEZAS');
+		$query = $this->db->get('piezas');
 		$result = $query->result_array();
 		return $result;		
 

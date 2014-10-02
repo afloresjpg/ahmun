@@ -5,7 +5,7 @@ class Session_model extends CI_Model {
 
 	public function getSessions() {
 
-		$query = $this->db->get('SESSION');
+		$query = $this->db->get('session');
 		die(var_dump($query->result()));
 
 	}

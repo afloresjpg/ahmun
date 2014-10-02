@@ -4,7 +4,7 @@
 class Trabajo_model extends CI_Model {
 
 	public function getTrabajos() {
-		$query = $this->db->query("SELECT NOMBRE FROM TRABAJOS");
+		$query = $this->db->query("SELECT NOMBRE FROM trabajos");
 		$result = $query->result_array();
 		return $result;
 	}

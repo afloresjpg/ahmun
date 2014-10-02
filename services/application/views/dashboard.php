@@ -16,7 +16,11 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $total_clientes; ?></div>
+                                    <?php if($total_clientes_internos == 1) : ?>
+                                    <div>Cliente</div>
+                                    <?php else : ?>
                                     <div>Clientes</div>
+                                    <?php endif; ?>  
                                 </div>
                             </div>
                         </div>
@@ -42,7 +46,11 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $total_clientes_internos; ?></div>
+                                    <?php if($total_clientes_internos == 1) : ?>
+                                    <div>Cliente interno</div>
+                                    <?php else : ?>
                                     <div>Clientes internos</div>
+                                    <?php endif; ?>  
                                 </div>
                             </div>
                         </div>
@@ -68,7 +76,11 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $total_piezas; ?></div>
+                                    <?php if($total_piezas == 1) : ?>
+                                    <div>Pieza</div>
+                                    <?php else : ?>
                                     <div>Piezas</div>
+                                    <?php endif; ?>                                    
                                 </div>
                             </div>
                         </div>
@@ -93,18 +105,18 @@
                                     <i class="fa fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $total_usuarios; ?></div>
-                                    <div>Usuarios</div>
+                                    <div class="huge"><?php echo $total_tareas; ?></div>
+                                    <?php if($total_tareas == 1) : ?>
+                                    <div>Tarea</div>
+                                    <?php else : ?>
+                                    <div>Tareas</div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php if($user_session['admin'] == 1){ echo $url.'usuarios'; } else { echo $url.'usuarios/listar'; } ?>">
-                            <div class="panel-footer">
-                                <?php if($user_session['admin'] == 1) : ?>
-                                <span class="pull-left">Agregar nuevo</span>
-                                <?php else : ?>
-                                <span class="pull-left">Ver todos</span>
-                                <?php endif; ?>
+                        <a href="<?php echo $url.'tarea'; ?>">
+                            <div class="panel-footer">                                
+                                <span class="pull-left">Agregar nueva</span>                                
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

@@ -32,14 +32,14 @@ class Dashboard extends CI_Controller {
 		$data['total_clientes'] = count($this->clientes_model->getClientes());
 		$data['total_clientes_internos'] = count($this->cliente_interno_model->getClientesInternos());
 		$data['total_piezas'] = count($this->piezas_model->getPiezas());				
+		$data['total_tareas'] = count($this->tarea_model->getTareas());
 		$data['user_session'] = $session;
-		$data['tareas'] = $this->tarea_model->getTareas();				
+		$data['page'] = 'dashboard';
+		$data['tareas'] = $this->tarea_model->getTareas();						
 
-		// die(var_dump($session));
-
-		if(!$session['logged_in']) {		
-			header('Location: login');
-			return false;
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
 		} else {
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/header', $data);

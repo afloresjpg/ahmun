@@ -5,7 +5,7 @@ class Cliente_interno_model extends CI_Model {
 
 	public function getClientesInternos() {
 
-		$query = $this->db->get('CLIENTE_INTERNO');
+		$query = $this->db->get('cliente_interno');
 		
 		$result = $query->result_array();
 		return $result;		

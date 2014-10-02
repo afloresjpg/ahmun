@@ -22,11 +22,11 @@ class Tarea extends CI_Controller {
 		$this->load->library('session');		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
-		$data['user_session'] = $session;	
+		$data['user_session'] = $session;			
 
-		if(!$session['logged_in']) {		
-			header('Location: inicio');
-			return false;
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
 		} else {
 			$this->showTareasLayer($data);			
 		}		
@@ -56,18 +56,21 @@ class Tarea extends CI_Controller {
 		if(isset($cliente) || isset($cliente_interno) || isset($trabajo) || isset($pieza) || isset($observacion) || isset($mes) || isset($cant)) {
 			if(empty($cliente) || empty($cliente_interno) || empty($trabajo) || empty($pieza) || empty($observacion) || empty($mes) || empty($cant)) {
 				$data['result']['type'] = 'error';
-				$data['result']['message'] = 'Alguno de los campos esta vaío';
+				$data['result']['message'] = 'Alguno de los campos esta vacío';
 				$this->showTareasLayer($data);
 				return false;
 			} else {
+				$this->load->model('clientes_model');				
 				$this->load->model('trabajo_model');				
 				$this->load->model('tarea_model');				
 
 				$anio = date('Y');
 				$user = $session['nombre_usuario'];
 
+				$c = $this->clientes_model->getClienteById($cliente);				
+
 				$this->trabajo_model->setTrabajo($trabajo);																		
-				$this->tarea_model->setTarea($cliente, $cliente_interno, $trabajo, $pieza, $observacion, $mes, $anio, $cant, $user);																		
+				$this->tarea_model->setTarea($c['NOMBRE'], $cliente_interno, $trabajo, $pieza, $observacion, $mes, $anio, $cant, $user);
 
 				$data['result']['type'] = 'success';
 				$data['result']['message'] = 'Se agrego la tarea con éxito';
@@ -81,6 +84,46 @@ class Tarea extends CI_Controller {
 
 	}
 
+	public function edit() 
+	{
+
+		$cliente = $this->input->post('cliente', true);
+		$cliente_interno = $this->input->post('cliente_interno', true);
+		$trabajo = $this->input->post('trabajo', true);
+		$pieza = $this->input->post('pieza', true);
+		$observacion = $this->input->post('observacion', true);
+		$mes = $this->input->post('mes', true);
+		$cantidad = $this->input->post('cantidad', true);
+		$id = $this->input->post('id', true);
+
+		$this->load->model('tarea_model');
+		$result = $this->tarea_model->updateTarea($id, $cliente, $cliente_interno, $trabajo, $pieza, $observacion, $mes, $cantidad);
+
+		
+		if($result) {
+			$data['result']['type'] = 'success';
+			$data['result']['message'] = 'Se edito la tarea correctamente.';			
+		}
+
+		echo json_encode($data);
+	}
+
+	public function delete() {
+
+		$id = $this->input->post('id', true);
+		$this->load->model('tarea_model');
+		$result = $this->tarea_model->deleteById($id);
+
+		if($result) {
+			$data['result']['type'] = 'success';
+			$data['result']['message'] = 'Se elimino la tarea correctamente.';				
+		}
+
+		echo json_encode($data);
+
+	}
+
+
 	public function getTrabajos() {
 
 		$this->load->model('trabajo_model');				
@@ -91,21 +134,39 @@ class Tarea extends CI_Controller {
 
 	public function listar() {
 
-		$this->load->model('piezas_model');
+		$this->load->model('tarea_model');
 		$this->load->library('session');	
 		
-		$todo = $this->piezas_model->getPiezas();
-		$data['piezas'] = $todo;
+		$todo = $this->tarea_model->getTareas();
+		$data['tareas'] = $todo;
+		$data['page'] = 'tarea';
 		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
 
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
+		}
+
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
-		$this->load->view('listar_piezas', $data);
+		$this->load->view('listar_tareas', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+	public function getTareaById() {
+
+		$id = $this->input->post('id', true);
+
+		$this->load->model('tarea_model');
+		$data = $this->tarea_model->getTareaById($id);
+
+		echo json_encode($data);
+
+
 	}
 
 	public function getClienteInterno() {
@@ -128,6 +189,7 @@ class Tarea extends CI_Controller {
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();			
 		$data['user_session'] = $session;	
+		$data['page'] = 'tarea';
 
 		$data['clientes'] = $this->clientes_model->getClientes();	
 		$data['piezas'] = $this->piezas_model->getPiezas();	

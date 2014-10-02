@@ -22,11 +22,11 @@ class Piezas extends CI_Controller {
 		$this->load->library('session');		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
-		$data['user_session'] = $session;	
+		$data['user_session'] = $session;			
 
-		if(!$session['logged_in']) {		
-			header('Location: inicio');
-			return false;
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
 		} else {
 			$this->showPiezasLayer($data);			
 		}		
@@ -69,6 +69,14 @@ class Piezas extends CI_Controller {
 
 	}
 
+	public function getPiezas() {
+
+		$this->load->model('piezas_model');		
+		
+		$todo = $this->piezas_model->getPiezas();
+		echo json_encode($todo);
+	}
+
 	public function listar() {
 
 		$this->load->model('piezas_model');
@@ -76,10 +84,16 @@ class Piezas extends CI_Controller {
 		
 		$todo = $this->piezas_model->getPiezas();
 		$data['piezas'] = $todo;
+		$data['page'] = 'pieza';
 		
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
+
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
+		}
 
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
@@ -94,6 +108,7 @@ class Piezas extends CI_Controller {
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
+		$data['page'] = 'pieza';
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);

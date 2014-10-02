@@ -24,9 +24,9 @@ class Cliente_interno extends CI_Controller {
 		$data['url'] = base_url();					
 		$data['user_session'] = $session;
 
-		if(!$session['logged_in']) {		
-			header('Location: inicio');
-			return false;
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;					
 		} else {
 			$this->showCliente_internoLayer($data);			
 		}		
@@ -81,13 +81,22 @@ class Cliente_interno extends CI_Controller {
 		$this->load->library('session');	
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
-		$data['user_session'] = $session;	
+		$data['user_session'] = $session;		
+		$data['page'] = 'cliente_interno';	
+		
+		if(!array_key_exists('logged_in', $session)) {
+			header('Location: '.base_url().'inicio');
+			return false;			
+		}
 
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/menu', $data);
 		$this->load->view('listar_cliente_interno', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer', $data);	
+		
+
+		
 	}
 
 	public function showCliente_internoLayer($data) {
@@ -101,6 +110,7 @@ class Cliente_interno extends CI_Controller {
 		$session = $this->session->all_userdata();
 		$data['url'] = base_url();				
 		$data['user_session'] = $session;	
+		$data['page'] = 'cliente_interno';
 
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/header', $data);
